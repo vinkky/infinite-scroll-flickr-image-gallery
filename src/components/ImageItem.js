@@ -28,7 +28,7 @@ const generateUrl = ({ farm, server, id, secret }, type) =>
 	`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_${type}.jpg`;
 
 const ImageItem = ({ image }) => {
-	const onMediaFallback = (event) => event.target.src = FALLBACK_IMAGE;
+	const onMediaFallback = (event) => (event.target.src = FALLBACK_IMAGE);
 	return (
 		<Card style={styles.root}>
 			<CardMedia

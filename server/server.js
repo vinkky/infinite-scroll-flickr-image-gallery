@@ -10,9 +10,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
-
 io.on('connection', (socket) => {
-	socket.on('get images', ({page, pageSize}) => {
+	socket.on('get images', ({ page, pageSize }) => {
 		getRecentPhotos({ page, pageSize })
 			.then((data) => {
 				io.sockets.emit('updateImages', data.body.photos.photo);
@@ -22,6 +21,5 @@ io.on('connection', (socket) => {
 			});
 	});
 });
-
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
