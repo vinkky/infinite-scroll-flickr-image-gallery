@@ -11,7 +11,9 @@ This is front-end application for flickr image gallery
 
 ## Installation
 
-Use the package manager [npm](https://docs.npmjs.com/cli/install) to install this application.
+Make sure to run server application first ```/server``` (readme added)
+
+Use the package manager [npm](https://docs.npmjs.com/cli/install) to run this application.
 
 ```bash
 npm i
@@ -20,4 +22,3 @@ npm start
 
 ### Notes
 
-Make sure to run server application first
