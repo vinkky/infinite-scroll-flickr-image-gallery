@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import FALLBACK_IMAGE from '../assets/images/fallback_image.png';
 
 const styles = {
 	root: {
@@ -27,6 +28,7 @@ const generateUrl = ({ farm, server, id, secret }, type) =>
 	`https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_${type}.jpg`;
 
 const ImageItem = ({ image }) => {
+	const onMediaFallback = (event) => event.target.src = FALLBACK_IMAGE;
 	return (
 		<Card style={styles.root}>
 			<CardMedia
@@ -34,6 +36,7 @@ const ImageItem = ({ image }) => {
 				style={styles.cover}
 				image={generateUrl(image, 'c')}
 				title={image.title}
+				onError={onMediaFallback}
 			/>
 			<CardContent style={{ maxWidth: '50%' }}>
 				<Typography component="h6" variant="h6">
