@@ -14,10 +14,10 @@ io.on('connection', (socket) => {
 	socket.on('get images', ({ page, pageSize }) => {
 		getRecentPhotos({ page, pageSize })
 			.then((data) => {
-				io.sockets.emit('updateImages', data.body.photos.photo);
+				socket.emit('updateImages', data.body.photos.photo);
 			})
 			.catch((err) => {
-				io.sockets.emit('onError', err.message);
+				socket.emit('onError', err.message);
 			});
 	});
 });
