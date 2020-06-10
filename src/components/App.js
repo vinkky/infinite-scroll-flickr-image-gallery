@@ -19,9 +19,8 @@ const sortAlphabetically = (images) => {
 const App = () => {
 	const containerRef = useRef(null);
 	const [ sort, setSort ] = useState(false);
-	const { images, loading, getImages } = useFlickr();
+	const { images, loading, getImages, error } = useFlickr();
 	useDetectBottom(containerRef, getImages);
-
 	return (
 		<div
 			style={{ height: '100vh', overflow: 'auto', textAlign: 'center' }}
@@ -33,7 +32,11 @@ const App = () => {
 				control={<Checkbox checked={sort} onChange={() => setSort(!sort)} />}
 				label="Sort alphabetically"
 			/>
-			<ImageList images={sort ? sortAlphabetically(images) : images} loading={loading} />
+			{error ? (
+				<h1>Error occured :( - {error}</h1>
+			) : (
+				<ImageList images={sort ? sortAlphabetically(images) : images} loading={loading} />
+			)}
 			<ScrollButton containerRef={containerRef} />
 		</div>
 	);
