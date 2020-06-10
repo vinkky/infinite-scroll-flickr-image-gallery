@@ -1,4 +1,4 @@
-# INFINITE SCROLL FLICKR IMAGE GALLERY  (CLIENT)
+# INFINITE SCROLL FLICKR IMAGE GALLERY
 
 This is front-end application for flickr image gallery
 
@@ -20,5 +20,4 @@ npm i
 npm start
 ```
 
-### Notes
 
